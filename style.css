@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    z-index: 2;
+}
+
+h1 {
+    text-align: center;
+    font-size: 6em;
+    letter-spacing: 1px;
+}
+
+.flex-container {
+    position: relative;
+    top: 6.9em;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /* flex-direction: row; */
+    /* z-index: 2; */
+}
+
+.filter-container {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 30px;
+    padding: 20px 20px 0 20px;
+    background-color: rgb(158, 19, 130);
+    width: 40%;
+    height: 100vh;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter label  {
+    font-size: 1.7em;
+    margin: 10px 0 8px 0;
+    color: white;
+}
+
+select {
+    width: 100%;
+    font-size: 1em;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #1f1f1f;
+    cursor: pointer;
+}
+
+#map {
+    /* margin: auto; */
+    width: 100%;
+    height: 400px;
+    padding-top: 20px;
+    /* background-color: pink; */
+}
+
+.wrapper {
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+.sub-header {
+    /* position: relative;
+    top: 120px; */
+    font-size: 2em;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    /* margin-left: 31%; */
+}
+
+.card-container {
+    /* position: relative;
+    top: 140px; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: scroll;
+}
+
+
+.card {
+    margin: auto;
+    width: 260px;
+    height: 500px;
+    box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    scale: 1.1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    background-color: blueviolet;
+}
+.card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 250px;
+    gap: 8px;
+    color: black;
+    background-color: ghostwhite;
+    padding: 10px;
+}
+p {
+    font-weight: 90;
+    font-size: 1em;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-weight: 580;
+    font-size: 1.4em;
+}
+h4 {
+    font-weight: 550;
+}
+h5 {
+    /* padding-top: 4px; */
+    font-size: 0.5em;
+    font-weight: 100;
+}
+
+/* .card-details h4 {
+    flex: 1;
+    margin-top: auto;
+} */
+
+/* Swiper */
+.swiper {
+    width: 100%;;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 250px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination {
+    padding: 3px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+}
+
+.swiper-pagination-bullet {
+    background: antiquewhite;
+    width: 16px;
+    height: 16px;
+}
+
+/* Modal */
+dialog {
+    z-index: 10;
+    position: fixed;
+    width: 60%;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    border: none;
+    position: relative;
+    padding-bottom: 42px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+body.modal-open {
+    overflow: hidden; /* Prevent scrolling while modal is open */
+}
+
+#close-modal {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    border: none;
+    background-color: blueviolet;
+    border-radius: 50%;
+    padding: 10px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    z-index: 2;
+}
+
+.modal-contents {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.modal-text {
+    padding: 20px;
+}
+
+.modal-contents img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.modal-text h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.modal-text h3 {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+
+.modal-contents h5 {
+    font-size: 1em;
+}
+
+.modal-contents h4 {
+    font-size: 24px;
+    margin-top: 16px;
+}
+
