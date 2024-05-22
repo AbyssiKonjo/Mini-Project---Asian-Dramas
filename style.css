@@ -11,24 +11,22 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
+    background-color: rgb(158, 19, 130);
     z-index: 2;
 }
 
 h1 {
     text-align: center;
     font-size: 6em;
-    letter-spacing: 1px;
 }
 
 .flex-container {
     position: relative;
     top: 6.9em;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* flex-direction: row; */
-    /* z-index: 2; */
+    flex-direction: row;
 }
 
 .filter-container {
@@ -36,10 +34,9 @@ h1 {
     top: 100px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     gap: 30px;
     padding: 20px 20px 0 20px;
-    background-color: rgb(158, 19, 130);
+    background-color: rgb(165, 29, 145);
     width: 40%;
     height: 100vh;
 }
@@ -65,33 +62,27 @@ select {
 }
 
 #map {
-    /* margin: auto; */
     width: 100%;
-    height: 400px;
+    height: 320px;
     padding-top: 20px;
-    /* background-color: pink; */
+    margin-bottom: 10px;
 }
 
 .wrapper {
     padding-bottom: 20px;
-    background-color: black;
+    background-color:rgba(158, 19, 130, 0.906);
 }
 
 .sub-header {
-    /* position: relative;
-    top: 120px; */
     font-size: 2em;
     font-weight: 400;
     font-style: italic;
     text-align: center;
     padding: 20px;
     color: white;
-    /* margin-left: 31%; */
 }
 
 .card-container {
-    /* position: relative;
-    top: 140px; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -150,15 +141,9 @@ h4 {
     font-weight: 550;
 }
 h5 {
-    /* padding-top: 4px; */
     font-size: 0.5em;
     font-weight: 100;
 }
-
-/* .card-details h4 {
-    flex: 1;
-    margin-top: auto;
-} */
 
 /* Swiper */
 .swiper {
@@ -227,11 +212,9 @@ body.modal-open {
 }
 
 .modal-contents {
-    display: flex;
     flex-direction: column;
-    /* padding: 20px; */
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-text {
@@ -264,3 +247,114 @@ body.modal-open {
     margin-top: 16px;
 }
 
+/* Media Queries */
+/* Tablet */
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 5em;
+    }
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0;
+        margin: ;
+    }
+    .flex-container {
+        top: 10.8em;
+    }
+    .filter-container {
+        top: 11em;
+        width: 40%;
+        gap: 20px;
+    }
+    .filter label  {
+        font-size: 1em;
+    }
+    select {
+        width: 100%;
+        font-size: 0.5em;
+        padding: 8px;
+    }
+    #map {
+        height: 150px;
+        margin-bottom: 20px;
+    }
+    .sub-header {
+        font-size: 1.5em;
+        font-weight: 400;
+        font-style: italic;
+        text-align: center;
+        padding: 30px;
+    }
+    .card {
+        margin: auto;
+        width: 250px;
+        height: 500px;
+    }
+    p {
+        font-size: 0.8em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    h3 {
+        font-weight: 580;
+        font-size: 1em;
+    }
+    h4 {
+        font-weight: 550;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    header {
+        position: fixed;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        position: fixed;
+        top: 7%;
+        width: 100%;
+        height: 200px;
+        padding: 20px 20px 0 20px;
+        margin-left: 14%;
+    }
+    .filter {
+        top: 8em;
+        display: flex;
+        flex-direction: column;
+    }
+    .filter label  {
+        font-size: 0.8em;
+        margin: 4px 0;
+    }
+    select {
+        width: 100%;
+        font-size: 0.4em;
+        padding: 4px;
+    }
+    .wrapper {
+        position: relative;
+        top: 4.7rem;
+        margin-left: 15%;
+        z-index: -1;
+    }
+    .sub-header {
+        font-size: 1.3em;
+        padding: 20px;
+    }
+    #map{
+        width: 70%;
+        height: 100%;
+    }
+    .card {
+        margin: auto;
+        width: 220px;
+        height: 500px;
+    }
+}
