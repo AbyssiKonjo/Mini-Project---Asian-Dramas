@@ -233,7 +233,7 @@ map.on('load', function() {
 
 // Filter input elements
 const countryFilter = document.getElementById("country");
-const yearFilter = document.getElementById("year");
+const genreFilter = document.getElementById("genre");
 const castFilter = document.getElementById("cast");
 const sortSelect = document.getElementById("sort");
 
@@ -243,7 +243,7 @@ countryFilter.addEventListener("change", function() {
     flyToCountry(selectedCountry);
     filterAndPopulateResults();
 });
-yearFilter.addEventListener("change", filterAndPopulateResults);
+genreFilter.addEventListener("change", filterAndPopulateResults);
 castFilter.addEventListener("change", filterAndPopulateResults);
 
 // Event listener for sorting
@@ -262,8 +262,8 @@ function filterCards() {
             return false;
         }
 
-        // check if year matches
-        if (yearFilter.value && parseInt(drama.year) <= parseInt(yearFilter.value)) {
+        // Check if genre matches
+        if (genreFilter.value && !drama.genres.toLowerCase().includes(genreFilter.value.toLowerCase())) {
             return false;
         }
         
