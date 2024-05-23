@@ -175,6 +175,7 @@ const asianDramas = [
     },
 ]
 
+// --------*** MAP ***--------
 const countries = [
     {
         name: "China",
@@ -230,12 +231,14 @@ function flyToCountry(countryName) {
 map.on('load', function() {
     map.resize();
 });
+// --------*** END of MAP ***--------
 
 // Filter input elements
 const countryFilter = document.getElementById("country");
 const genreFilter = document.getElementById("genre");
 const castFilter = document.getElementById("cast");
 const sortSelect = document.getElementById("sort");
+const clearFilter = document.getElementById("clear-filter-btn");
 
 // Event listeners for filters
 countryFilter.addEventListener("change", function() {
@@ -253,7 +256,10 @@ sortSelect.addEventListener("change", function () {
     populateResults(sortedDramas);
 });
 
-// // ------****** FILTER FUNCTIONS *****-------
+// Event listener for clear button
+clearFilter.addEventListener("click", resetFiltersAndSorting);
+
+// ------****** FILTER FUNCTIONS *****-------
 function filterCards() {
     return asianDramas.filter(drama => {
 
@@ -292,12 +298,27 @@ function sortCards(dramas, sortBy) {
     }
 }
 
+// -------- **** CLEAR FUNCTIONS ***** ---------
+function resetFiltersAndSorting() {
+    // Filters
+    countryFilter.value = '';
+    genreFilter.value = '';
+    castFilter.value = '';
+    // Sorting
+    sortSelect.value = 'default';
+    filterAndPopulateResults();
+}
+
 // -------***** POPULATION FUNCTIONS ****---------
 // Filter and then Populate Results
 function filterAndPopulateResults() {
     const filteredDramas = filterCards();
+    console.log("Dramas Filtered:", filteredDramas);
     const sortedDramas = sortCards(filteredDramas, sortSelect.value);
+    console.log("Sorted Dramas:", sortedDramas);
+
     populateResults(filteredDramas);
+
 }
 
 // Population of cards
@@ -347,10 +368,10 @@ function populateResults(filteredResults) {
             new Swiper(swiperEl, {
                 direction: 'vertical',
                 loop: true,
-                // autoplay: {
-                //     delay: 2500, // Delay between slides in milliseconds
-                //     disableOnInteraction: false, // Continue autoplay after user interactions
-                // },
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -369,15 +390,20 @@ function attachModalToCards() {
     const cards = document.querySelectorAll('.card');
     const detailsModal = document.getElementById('details-modal');
 
+    console.log("Cards found:", cards);
+
     cards.forEach((card, index) => {
         card.addEventListener('click', function() {
             populateModal(index);
             detailsModal.showModal();
             document.body.classList.add('modal-open');
+            console.log("Cards modal opened");
+
         });
     });
 
     document.getElementById('close-modal').addEventListener('click', function() {
+        console.log("Close modal button clicked.");
         detailsModal.close();
         document.body.classList.remove('modal-open');
     });
@@ -416,7 +442,7 @@ function populateModal(index) {
         direction: 'vertical',
         loop: true,
         autoplay: {
-            delay: 2500,
+            delay: 3500,
             disableOnInteraction: false,
         },
         pagination: {
@@ -447,7 +473,10 @@ const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'vertical',
     loop: true,
-  
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+    },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
